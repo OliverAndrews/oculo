@@ -38,6 +38,17 @@ export interface ISetup
     Execute(app);
 }
 
+export interface IEndpoint
+{
+    Kind: string;
+    Action(req, res);
+}
+
+export interface IEndpoints
+{
+    Endpoints: Array<IEndpoint>;
+}
+
 export const TYPES = {
     IBrowserBuilder: Symbol.for("IBrowserBuilder"),
     IPage: Symbol.for("IPage"),
@@ -45,4 +56,6 @@ export const TYPES = {
     IExpress: Symbol.for("IExpress"),
     IServerFactory: Symbol.for("IServerFactory"),
     ISetup: Symbol.for("ISetup"),
+    IEndpoints: Symbol.for("IEndpoints"),
+    IEndpoint: Symbol.for("IEndpoint"),
 }
