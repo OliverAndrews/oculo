@@ -10,11 +10,6 @@ export class ServerFactory implements IServerFactory
        this.DemonCore =  express();
     }
 
-    public Configure()
-    {
-        //
-    }
-
     public Get()
     {
         return this.DemonCore;
