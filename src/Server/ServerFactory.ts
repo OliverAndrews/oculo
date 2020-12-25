@@ -1,6 +1,6 @@
-import { IServerFactory } from '../../Types/Types';
 import * as express from 'express';
 import { injectable } from 'inversify';
+import { IServerFactory } from '../../Types/Types';
 
 @injectable()
 export class ServerFactory implements IServerFactory

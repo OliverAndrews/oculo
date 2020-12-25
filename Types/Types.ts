@@ -28,21 +28,29 @@ export interface IServer
     Run(): void;
 }
 
-export interface IExpress
-{
-    readonly Instance: any;
-}
-
 export interface ISetup
 {
     Execute(app);
+}
+
+export interface IEndpoint
+{
+    Kind: string;
+    Slug: string;
+    Action(req, res);
+}
+
+export interface IEndpoints
+{
+    Endpoints: Array<IEndpoint>;
 }
 
 export const TYPES = {
     IBrowserBuilder: Symbol.for("IBrowserBuilder"),
     IPage: Symbol.for("IPage"),
     IServer: Symbol.for("IServer"),
-    IExpress: Symbol.for("IExpress"),
     IServerFactory: Symbol.for("IServerFactory"),
     ISetup: Symbol.for("ISetup"),
+    IEndpoints: Symbol.for("IEndpoints"),
+    IEndpoint: Symbol.for("IEndpoint"),
 }
