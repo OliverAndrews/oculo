@@ -1,8 +1,9 @@
-import { injectable } from 'inversify';
 import { QueueWebpage } from './Modules/PuppeteerSystem/QueueWebpage';
-import { IEndpoints, IEndpoint } from '../../../Types/Types';
 import { QueueStatus } from './Modules/PuppeteerSystem/QueueStatus';
+import { IEndpoints, IEndpoint } from '../../../Types/Types';
 import { GetDone } from './Modules/PuppeteerSystem/GetDone';
+import { Status } from './Modules/Status/Status';
+import { injectable } from 'inversify';
 
 @injectable()
 export class Endpoints implements IEndpoints
@@ -11,5 +12,6 @@ export class Endpoints implements IEndpoints
         new QueueWebpage(),
         new QueueStatus(),
         new GetDone(),
+        new Status(),
     ];
 }
