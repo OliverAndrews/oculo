@@ -23,16 +23,16 @@ export class Server implements IServer
             switch (endpoint.Kind)
             {
                 case "GET":
-                    this._server.get((req, res) => endpoint.Action(req, res));
+                    this._server.get(endpoint.Slug, (req, res) => endpoint.Action(req, res));
                     break;
                 case "POST":
-                    this._server.post((req, res) => endpoint.Action(req, res));
+                    this._server.post(endpoint.Slug, (req, res) => endpoint.Action(req, res));
                     break;
                 case "PUT":
-                    this._server.put((req, res) => endpoint.Action(req, res));
+                    this._server.put(endpoint.Slug, (req, res) => endpoint.Action(req, res));
                     break;
                 case "DELETE":
-                    this._server.delete((req, res) => endpoint.Action(req, res));
+                    this._server.delete(endpoint.Slug, (req, res) => endpoint.Action(req, res));
                     break;
             }
         }
