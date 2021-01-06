@@ -5,5 +5,6 @@ import { injectable } from 'inversify';
 export class Endpoints implements IEndpoints
 {
     public Endpoints: Array<IEndpoint> = [
+        
     ];
 }
