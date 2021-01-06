@@ -21,8 +21,8 @@ export interface ISetup
 
 export interface IEndpoint
 {
-    Kind: string;
-    Slug: string;
+    Kind?: string;
+    Slug?: string;
     Action(req, res);
 }
 

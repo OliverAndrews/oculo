@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typescript": "ts-node ./Main.ts"
+    "dev": "ts-node ./Main.ts",
+    "exp" : "ts-node Test.ts"
   },
   "keywords": [],
   "author": "",
