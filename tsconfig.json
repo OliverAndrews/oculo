@@ -2,6 +2,7 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "target": "ES6",
-        "moduleResolution": "Node"
+        "moduleResolution": "Node",
+        "module": "commonjs",
     },
 }

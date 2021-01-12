@@ -31,10 +31,15 @@ export interface IEndpoints
     Endpoints: Array<IEndpoint>;
 }
 
+export interface IEndpointFactory {
+    Build(): Promise<IEndpoints>;
+}
+
 export const TYPES = {
     IServer: Symbol.for("IServer"),
     IServerFactory: Symbol.for("IServerFactory"),
     ISetup: Symbol.for("ISetup"),
     IEndpoints: Symbol.for("IEndpoints"),
     IEndpoint: Symbol.for("IEndpoint"),
+    IEndpointFactory: Symbol.for("IEndpointFactory")
 }

@@ -2,8 +2,8 @@ import "reflect-metadata";
 import { Container } from "inversify";
 import { Server } from '../src/Server/Server';
 import { ServerFactory } from '../src/Server/ServerFactory';
-import { Endpoints } from '../src/Server/Endpoints/Endpoints';
-import {  IEndpoints, IServerFactory, IServer, TYPES } from "../Types/Types";
+import {  IServerFactory, IServer, TYPES, IEndpointFactory } from "../Types/Types";
+import { EndpointsFactory } from "../src/Server/Endpoints/EndpointFactory";
 
 export class Compose
 {
@@ -13,8 +13,8 @@ export class Compose
     constructor(){
         const container = new Container();
         container
-            .bind<IEndpoints>(TYPES.IEndpoints)
-            .to(Endpoints);
+            .bind<IEndpointFactory>(TYPES.IEndpointFactory)
+            .to(EndpointsFactory);
         container
             .bind<IServerFactory>(TYPES.IServerFactory)
             .to(ServerFactory);

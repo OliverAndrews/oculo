@@ -11,10 +11,10 @@ export class Server implements IServer
 
     constructor(
         @inject(TYPES.IServerFactory) factory: IServerFactory,
-        @inject(TYPES.IEndpoints) endpoints: IEndpoints
+        @inject(TYPES.IEndpointFactory) endpoints: () => IEndpoints
         ) {
         this._server = factory.Get();
-        this._endpoints = endpoints;
+        this._endpoints = endpoints();
     }
 
     public Configure(): void {
