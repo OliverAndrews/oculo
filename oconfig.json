@@ -1,0 +1,6 @@
+{
+    "Location": "./AddIns",
+    "Endpoints": [
+        {"Filename": "Example.ts", "Endpoint": "Example"}
+    ]
+}
