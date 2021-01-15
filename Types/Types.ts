@@ -1,17 +1,15 @@
-// This is fucked up, but
-// there's nothing I can
-// do about it.
+import { Request, Response, Application } from 'express';
+
 export interface IServerFactory
 {
-    DemonCore;
-    Get(); 
+    DemonCore: Application;
+    Get(): Application; 
 }
 
 export interface IServer
 {
-    Port: number;
     Configure(): void;
-    Run(): void;
+    Run(port: number): void;
 }
 
 export interface ISetup
@@ -23,7 +21,7 @@ export interface IEndpoint
 {
     Kind?: string;
     Slug?: string;
-    Action(req, res);
+    Action(req: Request, res: Response);
 }
 
 export interface IEndpoints

@@ -4,22 +4,21 @@ import { inject, injectable } from 'inversify';
 @injectable()
 export class Server implements IServer
 {
-
-    public Port: number = 3000;
     private _server;
     private _endpoints: IEndpoints;
 
     constructor(
         @inject(TYPES.IServerFactory) factory: IServerFactory,
-        @inject(TYPES.IEndpointFactory) endpoints: () => IEndpoints
+        @inject(TYPES.IEndpoints) endpoints: IEndpoints
         ) {
         this._server = factory.Get();
-        this._endpoints = endpoints();
+        this._endpoints = endpoints;
     }
 
     public Configure(): void {
         for(var endpoint of this._endpoints.Endpoints)
         {
+            console.log(endpoint.Slug);
             switch (endpoint.Kind)
             {
                 case "GET":
@@ -38,7 +37,7 @@ export class Server implements IServer
         }
     }
 
-    public Run(): void {
-        this._server.listen(this.Port, () => console.log("Active"));
+    public Run(port: number): void {
+        this._server.listen(port, () => console.log("Active"));
     }
 }

@@ -2,19 +2,23 @@ import "reflect-metadata";
 import { Container } from "inversify";
 import { Server } from '../src/Server/Server';
 import { ServerFactory } from '../src/Server/ServerFactory';
-import {  IServerFactory, IServer, TYPES, IEndpointFactory } from "../Types/Types";
-import { EndpointsFactory } from "../src/Server/Endpoints/EndpointFactory";
+import {  IServerFactory, IServer, TYPES, IEndpoints } from "../Types/Types";
 
 export class Compose
 {
 
-    public readonly ContainerProvider: Container;
+    public ContainerProvider: Container;
+    private _endpoints: IEndpoints;
 
-    constructor(){
+    constructor(endpoints: IEndpoints){
+        this._endpoints = endpoints;
+    }
+
+    public BuildContainer(): void {
         const container = new Container();
         container
-            .bind<IEndpointFactory>(TYPES.IEndpointFactory)
-            .to(EndpointsFactory);
+            .bind<IEndpoints>(TYPES.IEndpoints)
+            .toConstantValue(this._endpoints);
         container
             .bind<IServerFactory>(TYPES.IServerFactory)
             .to(ServerFactory);
