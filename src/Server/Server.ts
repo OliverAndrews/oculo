@@ -16,9 +16,9 @@ export class Server implements IServer
     }
 
     public Configure(): void {
-        for(var endpoint of this._endpoints.Endpoints)
+        for(var i = 0; i < this._endpoints.Endpoints.length; i++)
         {
-            console.log(endpoint.Slug);
+            const endpoint = this._endpoints.Endpoints[i];
             switch (endpoint.Kind)
             {
                 case "GET":
